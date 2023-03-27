@@ -1,14 +1,11 @@
-# backup-bd
+# backup-db
 A simple python script to distribute copies of a file on a windows local network.
 
 ## Description
 The script was built to run inside a linux machine with the aim of distributing a copy of a file to Windows machines on the local network.
 
-## Quickstart
-This guide covers faster script usage.
-
-### Installation
-backup-bd requires an installation of Python3 or greater. And run on a linux machine with 'cifs-utils' packages installed
+## Installation
+backup-db requires an installation of Python3 or greater. And run on a linux machine with 'cifs-utils' packages installed
 
 Installing packages with apt
 
@@ -16,25 +13,30 @@ Installing packages with apt
 $ sudo apt install cifs-utils
 ```
 
-### Windows configuration
-* Turn on network discovery and turn off secure sharing
-* Share the folder with everyone the folder you want to save the file and give everyone read and write permission
-* OBS: It is recommended to create a 'Backup' folder inside the shared folder
+## Windows configuration
+* Turn on network discovery
+* Share the folder with everyone the folder you want to save the file and give everyone read and write permission.
 
-### Configuring the script
-It is necessary to configure the script before starting to use it.
+## Configuring the script
+It is necessary to configure the **backup-db.conf** file before starting to use it.
 
-Change IP, PATHS and HOURS as per your need
+* Change the parameters as needed.
+* You can create more than one machines session.
 
-```python
-_address = [
-    # Devices IP               # Path to mount on linux system
-    ('//192.168.0.114/share_folder', '/opt/mount_folder1/'),
-    ('//192.168.0.115/share_folder', '/opt/mount_folder2/')
-]
+```text
+[LOG]
+path=/var/log/backup-db.log
 
-_db = '/FULL/PATH/DATABASE'  # Only one file is allowed for backup
+[DATABASE]
+path=/FULL/PATH
 
-_time = ['09:00:00', '19:00:00']  # Examples of hours
+[PC1]
+ip=192.168.0.2
+username=user
+password=pass
+time=12:00:00, 19:00:00
+days=0,1,2,3,4,5,6
+backup_folder=backup/folder
+mount_point=/mount/point/
 ```
 

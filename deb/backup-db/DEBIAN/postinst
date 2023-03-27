@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+systemctl daemon-reload
+
+service backup-db start
+
+systemctl enable backup-db.service
+
+exit 0

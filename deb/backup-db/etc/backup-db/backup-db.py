@@ -31,18 +31,18 @@ def mount(ip: str, backup_folder: str, mount_point: str, username: str, password
         result_stderr = result.stderr.read().decode()
 
         if result_stderr != '':
-            if os.path.exists(f'{mount_point}'):  # Checks if the device is mounted.
-                logging.info(f'{ip}/{backup_folder} - Already Mounted')
+            if os.path.exists(f'{mount_point}Backup'):  # Checks if the device is mounted.
+                logging.info(f'{ip} - Already Mounted')
                 copy_db(ip,backup_folder, mount_point)
             else:
-                logging.error(f'{ip}/{backup_folder} - {result_stderr}')
+                logging.error(f'{ip} - {result_stderr}')
 
         if result_stdout == '' and result_stderr == '':
-            logging.info(f'{ip}/{backup_folder} - Successfully Mounted in {mount_point}')
+            logging.info(f'{ip} - Successfully Mounted in {mount_point}')
             copy_db(ip,backup_folder, mount_point)
 
     except Exception as error:
-        logging.critical(f'{ip}/{backup_folder} - {error}')
+        logging.critical(f'{ip} - {error}')
 
 
 def umount(ip: str, backup_folder: str):
@@ -169,7 +169,7 @@ def main(section: list):
 
 
 config = configparser.RawConfigParser()
-config.read('backup-db.conf')
+config.read('/etc/backup-db/backup-db.conf')
 
 log_format = '%(asctime)s - %(levelname)s : %(message)s'
 log_path = config.get('LOG', 'path')

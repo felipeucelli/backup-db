@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+service backup-db stop
+systemctl disable backup-db.service
+
+exit 0

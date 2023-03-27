@@ -1,0 +1,13 @@
+[Unit]
+Description="Sends a compressed copy of the chosen file to machines on the local network"
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/python3 /etc/backup-db/backup-db.py
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
+
+
