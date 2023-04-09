@@ -1,6 +1,6 @@
 Package: backup-db
 Version: 2.0
 Architecture: amd64
-Depends: cifs-utils, python3
+Depends: cifs-utils, python3, zip
 Maintainer: https://github.com/felipeucelli
 Description: Sends a compressed copy of the chosen file to machines on the local network

@@ -5,16 +5,16 @@ A simple python script to distribute copies of a file on a windows local network
 The script was built to run inside a linux machine with the aim of distributing a copy of a file to Windows machines on the local network.
 
 ## Installation
-backup-db requires an installation of Python3 or greater. And run on a linux machine with 'cifs-utils' packages installed
+backup-db requires an installation of Python3 or higher. And run on a linux machine with 'cifs-utils' and 'zip' packages installed.
 
-Installing packages with apt
+Installing packages with apt.
 
 ```bash
-$ sudo apt install cifs-utils
+$ sudo apt install cifs-utils zip
 ```
 
 ## Windows configuration
-* Turn on network discovery
+* Turn on network discovery.
 * Share the folder with everyone the folder you want to save the file and give everyone read and write permission.
 
 ## Configuring the script
